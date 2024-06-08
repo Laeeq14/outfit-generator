@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI&I - Generated Outfits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333; /* Dark gray text */
+            font-family: 'Roboto', Arial, sans-serif; /* Modern font */
+            padding-top: 50px; /* Add some space from the top */
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+        .card-header {
+            background-color: #ff6f61; /* Orange header background */
+            color: #fff; /* White text color */
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            border-bottom: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 10px;
+            margin-bottom: 0;
+            font-family: 'Pacifico', cursive; /* Stylish font */
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-body img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            transition: transform 0.3s ease;
+        }
+        .card-body img:hover {
+            transform: scale(1.05);
+        }
+        .text-center {
+            text-align: center; /* Center align text */
+        }
+        .btn-primary {
+            background-color: #ff6f61;
+            border-color: #ff6f61;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #ff3f34;
+            border-color: #ff3f34;
+            transform: scale(1.05);
+        }
+        .btn-back {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            {% for outfit in outfits %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Outfit</div>
+                    <div class="card-body">
+                        <img src="{{ outfit.image }}" alt="Outfit Image"> <!-- Use the actual outfit image -->
+                        <p class="text-center">Shirt: {{ outfit.shirt.color }} {{ outfit.shirt.type }}</p>
+                        <p class="text-center">Pants: {{ outfit.pants.color }} {{ outfit.pants.type }}</p>
+                        <p class="text-center">Shoes: {{ outfit.shoes.color }} {{ outfit.shoes.type }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center btn-back">
+            <a href="/" class="btn btn-primary btn-lg">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
